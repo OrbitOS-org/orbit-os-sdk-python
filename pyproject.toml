@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "orbitos-sdk"
-version = "26.0.1"
+version = "26.0.2"
 description = "OrbitOS Python SDK — gRPC client for the Gravity system server"
 readme = "README.md"
 requires-python = ">=3.10"
