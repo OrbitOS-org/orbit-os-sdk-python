@@ -41,11 +41,13 @@ class _APIRevisionInfo:
 
 class _APIRevisionInfoEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_APIRevisionInfo.ValueType], _builtins.type):
     DESCRIPTOR: _descriptor.EnumDescriptor
-    REVISION: _APIRevisionInfo.ValueType  # 0
+    REVISION_INIT: _APIRevisionInfo.ValueType  # 0
+    REVISION: _APIRevisionInfo.ValueType  # 1
 
 class APIRevisionInfo(_APIRevisionInfo, metaclass=_APIRevisionInfoEnumTypeWrapper): ...
 
-REVISION: APIRevisionInfo.ValueType  # 0
+REVISION_INIT: APIRevisionInfo.ValueType  # 0
+REVISION: APIRevisionInfo.ValueType  # 1
 Global___APIRevisionInfo: _TypeAlias = APIRevisionInfo  # noqa: Y015
 
 @_typing.final

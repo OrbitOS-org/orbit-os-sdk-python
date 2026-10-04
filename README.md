@@ -129,6 +129,13 @@ c.system_manager.disallow_untrusted_apps()      # → bool
 c.system_manager.is_untrusted_apps_allowed()    # → bool
 ```
 
+#### Device certification
+
+```python
+c.system_manager.get_serial_number()    # → str  ("" if the board is not certified)
+c.system_manager.is_device_certified()  # → bool
+```
+
 ### EthernetManager
 
 ```python
@@ -299,6 +306,17 @@ c.vpn_manager.remove_profile("wg0")
 # Watch tunnel events
 for event in c.vpn_manager.watch_events(profile_id="wg0"):
     print(event.state)
+```
+
+### MobileNotificationManager
+
+```python
+# Title is set by the runtime: "<device name> · <app display name>"
+sent, failed = c.mobile_notification_manager.send(
+    "Tank level below 10%", data={"tank": "1"}, collapse_key="tank-1", ttl_seconds=3600)
+
+c.mobile_notification_manager.set_enabled(False)   # device-wide, persisted
+c.mobile_notification_manager.is_enabled()          # → bool
 ```
 
 ### UpdateManager

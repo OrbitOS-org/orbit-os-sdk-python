@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)api/event_service/v26/event_service.proto\x12\x0f\x61pi.gravity.v26\"=\n\x10SubscribeRequest\x12)\n\x05types\x18\x01 \x03(\x0e\x32\x1a.api.gravity.v26.EventType\"q\n\x05\x45vent\x12\n\n\x02id\x18\x01 \x01(\t\x12(\n\x04type\x18\x02 \x01(\x0e\x32\x1a.api.gravity.v26.EventType\x12\x0e\n\x06source\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x0f\n\x07payload\x18\x05 \x01(\t*\xbf\x02\n\tEventType\x12\x16\n\x12\x45VENT_TYPE_UNKNOWN\x10\x00\x12\x17\n\x13\x45VENT_APP_INSTALLED\x10\x01\x12\x15\n\x11\x45VENT_APP_REMOVED\x10\x02\x12\x15\n\x11\x45VENT_APP_UPDATED\x10\x03\x12\x15\n\x11\x45VENT_APP_STARTED\x10\n\x12\x15\n\x11\x45VENT_APP_STOPPED\x10\x0b\x12\x15\n\x11\x45VENT_APP_CRASHED\x10\x0c\x12\x16\n\x12\x45VENT_APP_REJECTED\x10\r\x12\x17\n\x13\x45VENT_SYSTEM_REBOOT\x10\x14\x12\x1e\n\x1a\x45VENT_SYSTEM_FACTORY_RESET\x10\x15\x12\x17\n\x13\x45VENT_SYSTEM_UPDATE\x10\x16\x12\x10\n\x0c\x45VENT_NET_UP\x10\x1e\x12\x12\n\x0e\x45VENT_NET_DOWN\x10\x1f\x32X\n\x0c\x45ventService\x12H\n\tSubscribe\x12!.api.gravity.v26.SubscribeRequest\x1a\x16.api.gravity.v26.Event0\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)api/event_service/v26/event_service.proto\x12\x0f\x61pi.gravity.v26\"=\n\x10SubscribeRequest\x12)\n\x05types\x18\x01 \x03(\x0e\x32\x1a.api.gravity.v26.EventType\"q\n\x05\x45vent\x12\n\n\x02id\x18\x01 \x01(\t\x12(\n\x04type\x18\x02 \x01(\x0e\x32\x1a.api.gravity.v26.EventType\x12\x0e\n\x06source\x18\x03 \x01(\t\x12\x11\n\ttimestamp\x18\x04 \x01(\x03\x12\x0f\n\x07payload\x18\x05 \x01(\t*\xf7\x06\n\tEventType\x12\x16\n\x12\x45VENT_TYPE_UNKNOWN\x10\x00\x12\x17\n\x13\x45VENT_APP_INSTALLED\x10\x01\x12\x15\n\x11\x45VENT_APP_REMOVED\x10\x02\x12\x15\n\x11\x45VENT_APP_UPDATED\x10\x03\x12\x15\n\x11\x45VENT_APP_STARTED\x10\n\x12\x15\n\x11\x45VENT_APP_STOPPED\x10\x0b\x12\x15\n\x11\x45VENT_APP_CRASHED\x10\x0c\x12\x16\n\x12\x45VENT_APP_REJECTED\x10\r\x12\x17\n\x13\x45VENT_SYSTEM_REBOOT\x10\x14\x12\x19\n\x15\x45VENT_SYSTEM_SHUTDOWN\x10\x15\x12\x1e\n\x1a\x45VENT_SYSTEM_FACTORY_RESET\x10\x16\x12\x1d\n\x19\x45VENT_SYSTEM_TIME_CHANGED\x10\x18\x12!\n\x1d\x45VENT_SYSTEM_TIMEZONE_CHANGED\x10\x19\x12\x10\n\x0c\x45VENT_NET_UP\x10\x1e\x12\x12\n\x0e\x45VENT_NET_DOWN\x10\x1f\x12\x1c\n\x18\x45VENT_NET_WIFI_CONNECTED\x10 \x12\x1f\n\x1b\x45VENT_NET_WIFI_DISCONNECTED\x10!\x12\x1b\n\x17\x45VENT_NET_ETH_CONNECTED\x10\"\x12\x1e\n\x1a\x45VENT_NET_ETH_DISCONNECTED\x10#\x12 \n\x1c\x45VENT_NET_CELLULAR_CONNECTED\x10$\x12#\n\x1f\x45VENT_NET_CELLULAR_DISCONNECTED\x10%\x12\x15\n\x11\x45VENT_STORAGE_LOW\x10(\x12\x1a\n\x16\x45VENT_STORAGE_CRITICAL\x10)\x12\x1b\n\x17\x45VENT_POWER_LOW_BATTERY\x10\x32\x12 \n\x1c\x45VENT_POWER_CRITICAL_BATTERY\x10\x33\x12\x18\n\x14\x45VENT_POWER_CHARGING\x10\x34\x12\x1b\n\x17\x45VENT_POWER_DISCHARGING\x10\x35\x12\x1a\n\x16\x45VENT_THERMAL_THROTTLE\x10<\x12\x1a\n\x16\x45VENT_THERMAL_CRITICAL\x10=\x12\x1a\n\x16\x45VENT_UPDATE_AVAILABLE\x10\x46\x12\x19\n\x15\x45VENT_UPDATE_COMPLETE\x10G\x12\x17\n\x13\x45VENT_UPDATE_FAILED\x10H2X\n\x0c\x45ventService\x12H\n\tSubscribe\x12!.api.gravity.v26.SubscribeRequest\x1a\x16.api.gravity.v26.Event0\x01\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -32,11 +32,11 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'api.event_service.v26.event
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_EVENTTYPE']._serialized_start=241
-  _globals['_EVENTTYPE']._serialized_end=560
+  _globals['_EVENTTYPE']._serialized_end=1128
   _globals['_SUBSCRIBEREQUEST']._serialized_start=62
   _globals['_SUBSCRIBEREQUEST']._serialized_end=123
   _globals['_EVENT']._serialized_start=125
   _globals['_EVENT']._serialized_end=238
-  _globals['_EVENTSERVICE']._serialized_start=562
-  _globals['_EVENTSERVICE']._serialized_end=650
+  _globals['_EVENTSERVICE']._serialized_start=1130
+  _globals['_EVENTSERVICE']._serialized_end=1218
 # @@protoc_insertion_point(module_scope)

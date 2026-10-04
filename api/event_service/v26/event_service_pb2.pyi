@@ -27,22 +27,55 @@ class _EventTypeEnumTypeWrapper(_enum_type_wrapper._EnumTypeWrapper[_EventType.V
     DESCRIPTOR: _descriptor.EnumDescriptor
     EVENT_TYPE_UNKNOWN: _EventType.ValueType  # 0
     EVENT_APP_INSTALLED: _EventType.ValueType  # 1
-    """── App package lifecycle ────────────────────────────────────────────────"""
+    """── App package lifecycle ─────────────────────────────────────────────────"""
     EVENT_APP_REMOVED: _EventType.ValueType  # 2
     EVENT_APP_UPDATED: _EventType.ValueType  # 3
     EVENT_APP_STARTED: _EventType.ValueType  # 10
-    """── App process lifecycle ────────────────────────────────────────────────"""
+    """── App process lifecycle ─────────────────────────────────────────────────"""
     EVENT_APP_STOPPED: _EventType.ValueType  # 11
     EVENT_APP_CRASHED: _EventType.ValueType  # 12
     EVENT_APP_REJECTED: _EventType.ValueType  # 13
     """killed by Attach watchdog"""
     EVENT_SYSTEM_REBOOT: _EventType.ValueType  # 20
-    """── System ───────────────────────────────────────────────────────────────"""
-    EVENT_SYSTEM_FACTORY_RESET: _EventType.ValueType  # 21
-    EVENT_SYSTEM_UPDATE: _EventType.ValueType  # 22
+    """── System ────────────────────────────────────────────────────────────────"""
+    EVENT_SYSTEM_SHUTDOWN: _EventType.ValueType  # 21
+    EVENT_SYSTEM_FACTORY_RESET: _EventType.ValueType  # 22
+    EVENT_SYSTEM_TIME_CHANGED: _EventType.ValueType  # 24
+    EVENT_SYSTEM_TIMEZONE_CHANGED: _EventType.ValueType  # 25
     EVENT_NET_UP: _EventType.ValueType  # 30
-    """── Network ──────────────────────────────────────────────────────────────"""
+    """── Network ───────────────────────────────────────────────────────────────"""
     EVENT_NET_DOWN: _EventType.ValueType  # 31
+    EVENT_NET_WIFI_CONNECTED: _EventType.ValueType  # 32
+    EVENT_NET_WIFI_DISCONNECTED: _EventType.ValueType  # 33
+    EVENT_NET_ETH_CONNECTED: _EventType.ValueType  # 34
+    EVENT_NET_ETH_DISCONNECTED: _EventType.ValueType  # 35
+    EVENT_NET_CELLULAR_CONNECTED: _EventType.ValueType  # 36
+    EVENT_NET_CELLULAR_DISCONNECTED: _EventType.ValueType  # 37
+    EVENT_STORAGE_LOW: _EventType.ValueType  # 40
+    """── Storage ───────────────────────────────────────────────────────────────
+    disk space below warning threshold
+    """
+    EVENT_STORAGE_CRITICAL: _EventType.ValueType  # 41
+    """disk space below critical threshold"""
+    EVENT_POWER_LOW_BATTERY: _EventType.ValueType  # 50
+    """── Power ─────────────────────────────────────────────────────────────────"""
+    EVENT_POWER_CRITICAL_BATTERY: _EventType.ValueType  # 51
+    EVENT_POWER_CHARGING: _EventType.ValueType  # 52
+    EVENT_POWER_DISCHARGING: _EventType.ValueType  # 53
+    EVENT_THERMAL_THROTTLE: _EventType.ValueType  # 60
+    """── Thermal ───────────────────────────────────────────────────────────────
+    CPU throttled due to high temperature
+    """
+    EVENT_THERMAL_CRITICAL: _EventType.ValueType  # 61
+    """temperature critical — risk of shutdown"""
+    EVENT_UPDATE_AVAILABLE: _EventType.ValueType  # 70
+    """── Updates ───────────────────────────────────────────────────────────────
+    runtime detected a new system update
+    """
+    EVENT_UPDATE_COMPLETE: _EventType.ValueType  # 71
+    """system update successfully applied"""
+    EVENT_UPDATE_FAILED: _EventType.ValueType  # 72
+    """system update failed"""
 
 class EventType(_EventType, metaclass=_EventTypeEnumTypeWrapper):
     """EventType enumerates all events that Gravity can emit.
@@ -51,22 +84,55 @@ class EventType(_EventType, metaclass=_EventTypeEnumTypeWrapper):
 
 EVENT_TYPE_UNKNOWN: EventType.ValueType  # 0
 EVENT_APP_INSTALLED: EventType.ValueType  # 1
-"""── App package lifecycle ────────────────────────────────────────────────"""
+"""── App package lifecycle ─────────────────────────────────────────────────"""
 EVENT_APP_REMOVED: EventType.ValueType  # 2
 EVENT_APP_UPDATED: EventType.ValueType  # 3
 EVENT_APP_STARTED: EventType.ValueType  # 10
-"""── App process lifecycle ────────────────────────────────────────────────"""
+"""── App process lifecycle ─────────────────────────────────────────────────"""
 EVENT_APP_STOPPED: EventType.ValueType  # 11
 EVENT_APP_CRASHED: EventType.ValueType  # 12
 EVENT_APP_REJECTED: EventType.ValueType  # 13
 """killed by Attach watchdog"""
 EVENT_SYSTEM_REBOOT: EventType.ValueType  # 20
-"""── System ───────────────────────────────────────────────────────────────"""
-EVENT_SYSTEM_FACTORY_RESET: EventType.ValueType  # 21
-EVENT_SYSTEM_UPDATE: EventType.ValueType  # 22
+"""── System ────────────────────────────────────────────────────────────────"""
+EVENT_SYSTEM_SHUTDOWN: EventType.ValueType  # 21
+EVENT_SYSTEM_FACTORY_RESET: EventType.ValueType  # 22
+EVENT_SYSTEM_TIME_CHANGED: EventType.ValueType  # 24
+EVENT_SYSTEM_TIMEZONE_CHANGED: EventType.ValueType  # 25
 EVENT_NET_UP: EventType.ValueType  # 30
-"""── Network ──────────────────────────────────────────────────────────────"""
+"""── Network ───────────────────────────────────────────────────────────────"""
 EVENT_NET_DOWN: EventType.ValueType  # 31
+EVENT_NET_WIFI_CONNECTED: EventType.ValueType  # 32
+EVENT_NET_WIFI_DISCONNECTED: EventType.ValueType  # 33
+EVENT_NET_ETH_CONNECTED: EventType.ValueType  # 34
+EVENT_NET_ETH_DISCONNECTED: EventType.ValueType  # 35
+EVENT_NET_CELLULAR_CONNECTED: EventType.ValueType  # 36
+EVENT_NET_CELLULAR_DISCONNECTED: EventType.ValueType  # 37
+EVENT_STORAGE_LOW: EventType.ValueType  # 40
+"""── Storage ───────────────────────────────────────────────────────────────
+disk space below warning threshold
+"""
+EVENT_STORAGE_CRITICAL: EventType.ValueType  # 41
+"""disk space below critical threshold"""
+EVENT_POWER_LOW_BATTERY: EventType.ValueType  # 50
+"""── Power ─────────────────────────────────────────────────────────────────"""
+EVENT_POWER_CRITICAL_BATTERY: EventType.ValueType  # 51
+EVENT_POWER_CHARGING: EventType.ValueType  # 52
+EVENT_POWER_DISCHARGING: EventType.ValueType  # 53
+EVENT_THERMAL_THROTTLE: EventType.ValueType  # 60
+"""── Thermal ───────────────────────────────────────────────────────────────
+CPU throttled due to high temperature
+"""
+EVENT_THERMAL_CRITICAL: EventType.ValueType  # 61
+"""temperature critical — risk of shutdown"""
+EVENT_UPDATE_AVAILABLE: EventType.ValueType  # 70
+"""── Updates ───────────────────────────────────────────────────────────────
+runtime detected a new system update
+"""
+EVENT_UPDATE_COMPLETE: EventType.ValueType  # 71
+"""system update successfully applied"""
+EVENT_UPDATE_FAILED: EventType.ValueType  # 72
+"""system update failed"""
 Global___EventType: _TypeAlias = EventType  # noqa: Y015
 
 @_typing.final

@@ -225,7 +225,7 @@ echo -e "${GREEN}✓ SDK installed${NC}"
 
 echo -e "${YELLOW}Copying app source into bin/...${NC}"
 cp -r "$PKG_DIR"/. "$BUILD_DIR/bin/"
-rm -f "$BUILD_DIR/bin/metadata.json"
+# metadata.json stays in bin/ — Python has no go:embed, the app reads it at runtime
 rm -rf "$BUILD_DIR/bin/orb"
 find "$BUILD_DIR/bin" -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true
 echo -e "${GREEN}✓ App source copied${NC}"

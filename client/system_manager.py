@@ -100,6 +100,16 @@ class SystemManager:
 
     def attach(self) -> bool: return self._bool(self._stub.Attach)
 
+    # ── Device certification ─────────────────────────────────────────────────
+
+    def get_serial_number(self) -> str:
+        """Return the vendor-assigned serial number (e.g. ``'NAXIM-IRR-000001'``); ``''`` if not certified."""
+        return self._str(self._stub.GetSerialNumber)
+
+    def is_device_certified(self) -> bool:
+        """Return True if the board was loaded from a signed, certified .gbsp."""
+        return self._bool(self._stub.IsDeviceCertified)
+
     # ── Go SDK aliases ────────────────────────────────────────────────────────
 
     def get_build_version(self) -> str: return self.get_os_revision()

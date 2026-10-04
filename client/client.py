@@ -64,6 +64,7 @@ from .camera_manager import CameraManager
 from .event_manager import EventManager
 from .update_manager import UpdateManager
 from .vpn_manager import VPNManager
+from .mobile_notification_manager import MobileNotificationManager
 
 _UNIX_SOCKET = "/run/gravity/ipc/system_server.sock"
 _TCP_PORT = 6000
@@ -210,6 +211,7 @@ class Client:
         event_manager: System-wide event subscription.
         update_manager: OTA firmware update and factory reset.
         vpn_manager: WireGuard / OpenVPN profile management.
+        mobile_notification_manager: Push notifications to the user's phone.
     """
 
     def __init__(self, channel: grpc.Channel) -> None:
@@ -237,6 +239,7 @@ class Client:
         self.event_manager = EventManager(channel)
         self.update_manager = UpdateManager(channel)
         self.vpn_manager = VPNManager(channel)
+        self.mobile_notification_manager = MobileNotificationManager(channel)
 
     # ── Alternative constructors ───────────────────────────────────────────────
 

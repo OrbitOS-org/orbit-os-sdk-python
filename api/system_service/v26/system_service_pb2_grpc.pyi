@@ -88,6 +88,15 @@ class SystemServiceStub:
     Every app must call this within the launch timeout or Gravity kills the process.
     Allowed for any installed app regardless of permissions declared in identity.json.
     """
+    GetSerialNumber: _grpc.UnaryUnaryMultiCallable[_types_pb2.Empty, _types_pb2.StringResponse]
+    """Device Certification
+    Returns the vendor-assigned serial number (e.g. "NAXIM-IRR-000001").
+    Returns "" if the board is not certified (community board).
+    """
+    IsDeviceCertified: _grpc.UnaryUnaryMultiCallable[_types_pb2.Empty, _types_pb2.BooleanResponse]
+    """Reports whether the active board was loaded from a signed certified .gbsp
+    with a DeviceSection (vendor + serial + cert_id).
+    """
 
 @_typing.type_check_only
 class SystemServiceAsyncStub(SystemServiceStub):
@@ -147,6 +156,15 @@ class SystemServiceAsyncStub(SystemServiceStub):
     """Attach — mandatory environment binding call.
     Every app must call this within the launch timeout or Gravity kills the process.
     Allowed for any installed app regardless of permissions declared in identity.json.
+    """
+    GetSerialNumber: _aio.UnaryUnaryMultiCallable[_types_pb2.Empty, _types_pb2.StringResponse]  # type: ignore[assignment]
+    """Device Certification
+    Returns the vendor-assigned serial number (e.g. "NAXIM-IRR-000001").
+    Returns "" if the board is not certified (community board).
+    """
+    IsDeviceCertified: _aio.UnaryUnaryMultiCallable[_types_pb2.Empty, _types_pb2.BooleanResponse]  # type: ignore[assignment]
+    """Reports whether the active board was loaded from a signed certified .gbsp
+    with a DeviceSection (vendor + serial + cert_id).
     """
 
 class SystemServiceServicer(metaclass=_abc_1.ABCMeta):
@@ -456,6 +474,27 @@ class SystemServiceServicer(metaclass=_abc_1.ABCMeta):
         """Attach — mandatory environment binding call.
         Every app must call this within the launch timeout or Gravity kills the process.
         Allowed for any installed app regardless of permissions declared in identity.json.
+        """
+
+    @_abc_1.abstractmethod
+    def GetSerialNumber(
+        self,
+        request: _types_pb2.Empty,
+        context: _ServicerContext,
+    ) -> _typing.Union[_types_pb2.StringResponse, _abc.Awaitable[_types_pb2.StringResponse]]:
+        """Device Certification
+        Returns the vendor-assigned serial number (e.g. "NAXIM-IRR-000001").
+        Returns "" if the board is not certified (community board).
+        """
+
+    @_abc_1.abstractmethod
+    def IsDeviceCertified(
+        self,
+        request: _types_pb2.Empty,
+        context: _ServicerContext,
+    ) -> _typing.Union[_types_pb2.BooleanResponse, _abc.Awaitable[_types_pb2.BooleanResponse]]:
+        """Reports whether the active board was loaded from a signed certified .gbsp
+        with a DeviceSection (vendor + serial + cert_id).
         """
 
 def add_SystemServiceServicer_to_server(servicer: SystemServiceServicer, server: _typing.Union[_grpc.Server, _aio.Server]) -> None: ...

@@ -245,6 +245,16 @@ class SystemServiceStub(object):
                 request_serializer=api_dot_common_dot_types__pb2.Empty.SerializeToString,
                 response_deserializer=api_dot_common_dot_types__pb2.BooleanResponse.FromString,
                 _registered_method=True)
+        self.GetSerialNumber = channel.unary_unary(
+                '/api.gravity.v26.SystemService/GetSerialNumber',
+                request_serializer=api_dot_common_dot_types__pb2.Empty.SerializeToString,
+                response_deserializer=api_dot_common_dot_types__pb2.StringResponse.FromString,
+                _registered_method=True)
+        self.IsDeviceCertified = channel.unary_unary(
+                '/api.gravity.v26.SystemService/IsDeviceCertified',
+                request_serializer=api_dot_common_dot_types__pb2.Empty.SerializeToString,
+                response_deserializer=api_dot_common_dot_types__pb2.BooleanResponse.FromString,
+                _registered_method=True)
 
 
 class SystemServiceServicer(object):
@@ -515,6 +525,23 @@ class SystemServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def GetSerialNumber(self, request, context):
+        """Device Certification
+        Returns the vendor-assigned serial number (e.g. "NAXIM-IRR-000001").
+        Returns "" if the board is not certified (community board).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def IsDeviceCertified(self, request, context):
+        """Reports whether the active board was loaded from a signed certified .gbsp
+        with a DeviceSection (vendor + serial + cert_id).
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_SystemServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -725,6 +752,16 @@ def add_SystemServiceServicer_to_server(servicer, server):
             ),
             'Attach': grpc.unary_unary_rpc_method_handler(
                     servicer.Attach,
+                    request_deserializer=api_dot_common_dot_types__pb2.Empty.FromString,
+                    response_serializer=api_dot_common_dot_types__pb2.BooleanResponse.SerializeToString,
+            ),
+            'GetSerialNumber': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetSerialNumber,
+                    request_deserializer=api_dot_common_dot_types__pb2.Empty.FromString,
+                    response_serializer=api_dot_common_dot_types__pb2.StringResponse.SerializeToString,
+            ),
+            'IsDeviceCertified': grpc.unary_unary_rpc_method_handler(
+                    servicer.IsDeviceCertified,
                     request_deserializer=api_dot_common_dot_types__pb2.Empty.FromString,
                     response_serializer=api_dot_common_dot_types__pb2.BooleanResponse.SerializeToString,
             ),
@@ -1861,6 +1898,60 @@ class SystemService(object):
             request,
             target,
             '/api.gravity.v26.SystemService/Attach',
+            api_dot_common_dot_types__pb2.Empty.SerializeToString,
+            api_dot_common_dot_types__pb2.BooleanResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetSerialNumber(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.gravity.v26.SystemService/GetSerialNumber',
+            api_dot_common_dot_types__pb2.Empty.SerializeToString,
+            api_dot_common_dot_types__pb2.StringResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def IsDeviceCertified(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/api.gravity.v26.SystemService/IsDeviceCertified',
             api_dot_common_dot_types__pb2.Empty.SerializeToString,
             api_dot_common_dot_types__pb2.BooleanResponse.FromString,
             options,
